@@ -1,0 +1,21 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}
+    Etudiants Edit
+{% endblock %}
+
+{% block pageTitle %}
+    Editer des Etudiants
+{% endblock %}
+
+{% block body %}
+    {{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $(document).ready(function() {
+            $('.select2').select2();
+        });
+    </script>
+{% endblock %}

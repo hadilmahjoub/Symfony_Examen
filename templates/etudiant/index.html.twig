@@ -1,0 +1,80 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}
+    Etudiants List
+{% endblock %}
+
+{% block pageTitle %}
+    Liste des Etudiants
+{% endblock %}
+
+{% block body %}
+
+    {#<div class="alert alert-warning">
+        <a href="{{ path('tab', {nb: 7}) }}">Stats Table</a>
+    </div>#}
+    <table class="table">
+        <tr class="table-active">
+            <td>FirstName</td>
+            <td>Name</td>
+            <td>Section</td>
+            <td>Action</td>
+        </tr>
+
+        {% for etudiant in etudiants %}
+            <tr class="table-{% if loop.index is odd %}danger{% else %}warning{% endif %}">
+                <td>{{ etudiant.nom }}</td>
+                <td>{{ etudiant.prenom }}</td>
+                <td>
+                    {% if(etudiant.section is null) %}
+                        Non encore affecté
+                    {% else %}
+                        {{ etudiant.section }}
+                    {% endif %}
+
+                </td>
+                <td>
+                    <a href="{{ path('etudiant.edit', {id: etudiant.id}) }}" class="card-link">
+                        <i class="fa-solid fa-user-pen" style="color: blue"></i>
+                    </a>
+                    <a href="{{ path('etudiant.delete', {id: etudiant.id}) }}" class="card-link">
+                        <i class="fa-solid fa-user-xmark" style="color: red"></i>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    {% if isPaginated is defined and isPaginated%}
+        <div class="row mt-4">
+            <nav aria-label="col Page navigation example">
+                <ul class="pagination">
+
+                    <li class="page-item{% if page == 1 %} disabled{% endif %}">
+                        <a class="page-link"
+                           href="{{ path('etudiant.list',{page: page-1, nbr: nbr}) }}">
+                            Previous
+                        </a>
+                    </li>
+
+                    {% for i in range(1, nbPage) %}
+                        <li class="page-item">
+                            <a class="page-link"
+                               href="{{ path('etudiant.list',{page: i, nbr: nbr}) }}">
+                                {{ i }}
+                            </a>
+                        </li>
+                    {% endfor %}
+
+                    <li class="page-item {% if page == nbPage %}disabled{% endif %}">
+                        <a class="page-link"
+                           href="{{ path('etudiant.list',{page: page+1, nbr: nbr}) }}">
+                            Next
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    {% endif %}
+
+{% endblock %}
