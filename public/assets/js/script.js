@@ -1,10 +1,10 @@
-// console.log('hello');
+console.log('hello');
 
 const td = document.querySelectorAll('td');
 
 td.forEach(e => {
     e.addEventListener('click', () => {
-        // console.log(e);
+        console.log(e);
         e.classList.toggle('highlight')
     })
 })
