@@ -11,13 +11,19 @@
             Template Document
         {% endblock %}
     </title>
-    <link rel="stylesheet" href="{{ asset("assets/css/styles.css")}} ">
-    <link rel="stylesheet" href="{{ asset('node_modules/bootstrap/dist/css/bootstrap.css') }}"> <!--BOOTSTRAP CSS-->
-    <link href="{{ asset('node_modules/select2/dist/css/select2.min.css') }}" rel="stylesheet" /> <!--SELECT2 CSS-->
+
+    <link href="{{ asset('assets/css/styles.css') }}" rel="stylesheet" /> <!--STYLESHEET CSS-->
+    <link href="{{ asset('node_modules/bootstrap/dist/css/bootstrap.css') }}" rel="stylesheet"> <!--BOOTSTRAP CSS-->
     <link href="{{ asset('node_modules/@fortawesome/fontawesome-free/css/all.css') }}" rel="stylesheet" /> <!--FONTAWESOME CSS-->
+    <link href="{{ asset('node_modules/select2/dist/css/select2.min.css') }}" rel="stylesheet" /> <!--SELECT2 CSS-->
+    <link href="{{ asset('node_modules/startbootstrap-sb-admin/dist/css/styles.css') }}" rel="stylesheet"> <!--SB ADMIN CSS-->
+
     {% block stylesheets %}
     {% endblock %}
-    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+
+{#    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>#}
+{#    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>#}
+
 </head>
 <body>
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -137,13 +143,17 @@
 
     </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+<script src="{{ asset('assets/js/scripts.js') }}"></script>
 <script src="{{ asset('node_modules/jquery/dist/jquery.min.js') }}"></script> <!--JQUERY-->
 <script src="{{ asset('node_modules/select2/dist/js/select2.min.js') }}"></script> <!--SELECT2 JS-->
 <script src="{{ asset('node_modules/@fortawesome/fontawesome-free/js/all.js') }}"></script> <!--FONTAWESOME JS-->
-<script src="{{ asset('assets/js/script.js') }}"></script>
+<script src="{{ asset('node_modules/startbootstrap-sb-admin/dist/js/scripts.js') }}"></script> <!--SB ADMIN JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script> <!--BOOTSTRAP JS-->
+
 {% block javascripts %}
 {% endblock %}
+
 </body>
 </html>
 
